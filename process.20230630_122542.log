@@ -1,0 +1,285 @@
+[1m
+ ##############################################################################
+ ##   Processing of diffraction images
+ ##############################################################################
+
+      Copyright (C) 2004-2021 by Global Phasing Limited
+ 
+                All rights reserved.
+ 
+                This software is proprietary to and embodies the confidential
+                technology of Global Phasing Limited (GPhL). Possession, use,
+                duplication or dissemination of the software is authorised
+                only pursuant to a valid written licence from GPhL.
+
+      Version:  1.0.5  <2023-06-14 01:30:46>
+
+ ------------------------------------------------------------------------------
+
+   Developers:  (2004-2005) G. Bricogne, C. Flensburg, W. Paciorek, O. Smart, C. Vonrhein
+                (2006-2008) G. Bricogne, C. Flensburg, P. Keller, W. Paciorek, O. Smart, T. Womack, C. Vonrhein
+                (2009-2012) G. Bricogne, C. Flensburg, P. Keller, W. Paciorek, A. Sharff, O. Smart, T. Womack, C. Vonrhein
+                (2013-2015) G. Bricogne, C. Flensburg, P. Keller, W. Paciorek, A. Sharff, O. Smart, C. Vonrhein
+                (2016-2017) G. Bricogne, C. Flensburg, R. Fogh, P. Keller, W. Paciorek, A. Sharff, I. Tickle, C. Vonrhein
+                (2018-2021) G. Bricogne, C. Flensburg, R. Fogh, P. Keller, W. Paciorek, A. Sharff, I. Tickle, C. Vonrhein, M. Wojdyr
+
+
+      Authors:  (2004-2007) G. Bricogne, C. Vonrhein
+                (2008-2010) G. Bricogne, C. Flensburg, C. Vonrhein, T. Womack
+                (2011-2012) G. Bricogne, C. Flensburg, A. Sharff, C. Vonrhein, T. Womack
+                (2013-2015) G. Bricogne, C. Flensburg, P. Keller, W. Paciorek, A. Sharff, C. Vonrhein
+                (2016-2018) G. Bricogne, C. Flensburg, P. Keller, W. Paciorek, A. Sharff, I. Tickle, C. Vonrhein
+                (2019-2023) G. Bricogne, C. Flensburg, R. Fogh, P. Keller, W. Paciorek, A. Sharff, I. Tickle, C. Vonrhein, M. Wojdyr
+[m
+      External: (1990-2012) [MOSFLM] A. Leslie, H. Powell
+                (1988-2023) [XDS] W. Kabsch, K. Diederichs
+                (1997-2023) [SCALA/POINTLESS/AIMLESS] P. Evans
+ 
+      Partial support by EU project: BIOXHIT (LSHG-CT-2003-503420)
+ 
+      Contact:  proc-develop@GlobalPhasing.com
+ 
+  Please cite:  Vonrhein, C., Flensburg, C., Keller, P., Sharff, A., Smart, O.,
+                Paciorek, W., Womack, T. & Bricogne, G. (2011). Data processing
+                and analysis with the autoPROC toolbox. Acta Cryst. D67, 293-302.
+ 
+                see: http://journals.iucr.org/d/issues/2011/04/00/ba5166/ba5166bdy.html
+ 
+  Further details (also about correct acknowledgment during PDB deposition) can
+  be found at: https://www.globalphasing.com/autoproc/wiki/index.cgi?CitingAutoPROC
+ 
+ ==============================================================================
+ 
+
+ -----------------------------------------------------------------------------------------
+  Host      : eva02
+  OS        : Ubuntu 22.04.2 LTS
+  User      : murphy (group = murphy)
+  Directory : /home/murphy/Repos/tesis-doc-scripts
+  Date      : Fri Jun 30 12:25:43 CST 2023
+  autoPROC  : /home/murphy/GPhL/autoPROC_snapshot_20230614
+ -----------------------------------------------------------------------------------------
+
+ 
+ NOTE : running with arguments "-R 35 1.05 -M AlbaBL13Xaloc
+        symm=P43212 -M /home/murphy/doc/pil/alba2022 -d
+        /home/murphy/doc/prc/cut_B2X4-02.70_MGy -Id
+        02,/home/murphy/raw/B2X4/01/,B2X4_01_####.cbf,1,405
+        -B"
+ 
+ 
+ WARNING : if giving a spacegroup for XDS the cell
+           parameters usually should be given too (cell="a b
+           c alpha beta gamma" syntax)! However, we will try
+           and fetch the most likely cell for this spacegroup
+           after indexing first in P1.
+ 
+ 
+ NOTE : summary of process output also created as HTML.
+        Please point your browser to
+        "file:///home/murphy/doc/prc/cut_B2X4-02.70_MGy/summary.html".
+ 
+ 
+ NOTE : please cite use of all components and programs (see
+        below)!
+ 
+        autoPROC   : Vonrhein, C., Flensburg, C., Keller, P., Sharff, A., Smart, O., Paciorek, W.,
+                     Womack, T. and Bricogne, G. (2011). Data processing and analysis with
+                     the autoPROC toolbox. Acta Cryst. D67, 293-302.
+        
+        XDS        : Kabsch, W. (2010). XDS. Acta Cryst. D66, 125-132.
+        
+        POINTLESS  : Evans, P.R. (2006). Scaling and assessment of data quality, Acta Cryst. D62, 72-82.
+        
+        AIMLESS    : Evans, P.R. and Murshudov, G.N. (2013). How good are my data and what is the
+                     resolution?, Acta Cryst. D69, 1204-1214.
+        
+        CCP4       : Winn, M.D., Ballard, C.C., Cowtan, K.D. Dodson, E.J., Emsley, P., Evans, P.R.,
+                     Keegan, R.M., Krissinel, E.B., Leslie, A.G.W., McCoy, A., McNicholas, S.J., Murshudov,
+                     G.N., Pannu, N.S., Potterton, E.A., Powell, H.R., Read, R.J., Vagin, A. and Wilson, K.S.
+                     (2011). Overview of the CCP4 suite and current developments, Acta. Cryst. D67, 235-242.
+        
+        STARANISO  : Tickle, I.J., Flensburg, C., Keller, P., Paciorek, W., Sharff, A., Vonrhein, C., 
+                     and Bricogne, G. (2018-2022). STARANISO. Cambridge, United Kingdom: Global Phasing Ltd.
+        
+ 
+      Program versions:
+          XDS         : Jan 10, 2022 (BUILT 20220820)
+          POINTLESS   : 1.12.15
+          AIMLESS     : 0.7.9
+          CCP4        : 8.0.012
+          STARANISO   : 2.3.94 (20230525)
+ 
+ 
+ NOTE : based on the number of available threads we will set
+        OMP_NUM_THREADS=4 (the XDS keyword
+        MAXIMUM_NUMBER_OF_PROCESSORS will be left empty). You
+        can change this via the '-nthreads' and/or
+        autoPROC_XdsKeyword_MAXIMUM_NUMBER_OF_PROCESSORS=<N>
+        argument.
+ 
+ ===== checking input for XDS 
+ 
+ NOTE : good - you are using the same XDS version as the one
+        against which this version of autoPROC was tested
+        (Jan 10, 2022, built on 20220820)!
+ 
+ 
+ NOTE : the following variables have been set
+ 
+        symm="P43212"
+        reslow="35"
+        reshigh="1.05"
+ 
+ NOTE : identifiers given by user = 02
+ 
+ ===== Setup 
+ 
+ NOTE : for image
+        "/home/murphy/raw/B2X4/01//B2X4_01_0001.cbf" we found
+        detector identifier = "Pilatus-60-0108" and timestamp
+        = "20220702"
+ 
+ 
+ NOTE : setting additional default parameters based on
+        detector identifier "Pilatus-60-0108"
+        (BeamCentreFrom=header:x,y).
+ 
+ ===== Spot-search and indexing using XDS 
+ 
+ NOTE : all output written to directory
+        /home/murphy/doc/prc/cut_B2X4-02.70_MGy
+ 
+        Header information from first image
+        (/home/murphy/raw/B2X4/01//B2X4_01_0001.cbf):
+          date                                = 02 Jul 2022 01:56:29.155
+          exposure time             [seconds] = 0.197
+          distance                       [mm] = 136.770
+          wavelength                      [A] = 1.033200
+          Phi-angle                  [degree] = 0.00000
+          Omega-angle (start, end)   [degree] = 0.62000 0.82000
+          Oscillation-angle in Omega [degree] = 0.20000
+          Kappa-angle                [degree] = 0.00000
+          2-Theta angle              [degree] = 0.00000
+          Beam centre in X            [pixel] = 1179.990
+          Beam centre in Y            [pixel] = 1293.570
+ 
+ NOTE : using spots from images 1-405
+ 
+ 
+   >>> img2xds >>>
+   >>> img2xds >>> Extracted from file /home/murphy/doc/prc/cut_B2X4-02.70_MGy/img2xds.log : 
+   >>> img2xds >>>
+   >>> img2xds >>> NOTE : XDS version = (20220110), intel64
+   >>> img2xds >>>
+   >>> img2xds >>> WARNING : encountered potential problems while reading
+   >>> img2xds >>>           image header: please check output of
+   >>> img2xds >>>           "/home/murphy/GPhL/autoPROC_snapshot_20230614/autoPROC/bin/linux64/imginfo
+   >>> img2xds >>>           /home/murphy/raw/B2X4/01//B2X4_01_0001.cbf" (see
+   >>> img2xds >>>           below).
+   >>> img2xds >>>
+   >>> img2xds >>>   >>> imginfo >>> Extracted from file /home/murphy/doc/prc/cut_B2X4-02.70_MGy/imginfo.log : 
+   >>> img2xds >>>   >>> imginfo >>>
+   >>> img2xds >>>   >>> imginfo >>> WARNING: Omega-scan without a specific Omega value!
+   >>> img2xds >>>   >>> imginfo >>>          Will set Omega values based on Start_angle and Angle_increment only.
+   >>> img2xds >>>   >>> imginfo >>>
+   >>> img2xds >>>   >>> imginfo >>> WARNING: there is also a Chi angle given - unusual for Kappa goniostat!
+   >>> img2xds >>>   >>> imginfo >>>
+   >>> img2xds >>>
+   >>> img2xds >>> NOTE : to prevent this warning (if you think it is
+   >>> img2xds >>>        superfluous or it is known to be of no consequence to
+   >>> img2xds >>>        data processing), set
+   >>> img2xds >>>        autoPROC_ImginfoReportWarnings="no" (eg in a
+   >>> img2xds >>>        beamline-specific macro)
+   >>> img2xds >>>
+   >>> img2xds >>> NOTE : detector type defined as "Pilatus-6M" based on
+   >>> img2xds >>>        dimensions (2463x2527)
+   >>> img2xds >>>
+   >>> img2xds >>> NOTE : added gap definitions for this detector
+   >>> img2xds >>>
+ 
+ NOTE : goniostat angles for first image are Omega,Kappa,Phi
+        = 0.62000,0.00000,0.00000
+ 
+ 
+ WARNING : please check img2xds.log for warning messages!
+           These could be due to problems in interpreting
+           image headers (in which case it would be great if
+           you could send us an example image for testing) or
+           because of inconsistencies within the header data
+           itself (you might want to contact beamline staff
+           and/or us to help analysing this). If you are sure
+           that those warnings are of no consequence, you can
+           surpress them by setting
+           autoPROC_ImginfoReportWarnings="no" on the
+           command-line ... but be aware that setting this as
+           a general default for any dataset from any
+           instrument is definitely a bad idea!
+ 
+ Number of spots (total)  :      78686
+   within ice-ring ranges               :        266 =   0.34 %
+   outside those ranges                 :      78420 =  99.66 %
+ Resolution limits of      78686 spots  :    34.9507 -     1.0694 A
+ 
+ NOTE : good - no problematic spots found
+ 
+ 
+ NOTE : re-setting low-resolution limit to 20.0 A (from 35)
+        for indexing
+ 
+ 
+ NOTE : running iterative indexing - for details see
+        run_idxref_cycle-1.log
+ 
+ 
+ NOTE : picking indexing solution that used the most spots
+        (=01) - for details see run_idxref_cycle-1.log
+ 
+ 
+ NOTE : indexing uses 79% (61804) of the initial 78686 spots
+ 
+ 
+ WARNING : the selected indexing solution uses less than 80%
+           of initial spots - please check this carefully for
+           ice-rings, damaged pixels or minor lattices.
+ 
+
+ NOTE : you can check the current status with GPX2 by
+        running
+        /home/murphy/doc/prc/cut_B2X4-02.70_MGy/status/01_run_idxref_01/gpx.sh
+
+ 
+ NOTE : selected cell parameters for user-supplied
+        spacegroup P43212 = 77.4 77.4 37.7 90 90 90
+ 
+     LATTICE-  BRAVAIS-   QUALITY  UNIT CELL CONSTANTS (ANGSTROEM & DEGREES)
+    CHARACTER  LATTICE     OF FIT      a      b      c   alpha  beta gamma
+   
+       31        aP          0.0      37.7   77.3   77.5  90.0  89.9  90.0
+       44        aP          0.6      37.7   77.3   77.5  90.0  90.1  90.0
+       35        mP          2.5      77.3   37.7   77.5  90.1  90.0  90.0
+       33        mP          2.7      37.7   77.3   77.5  90.0  90.1  90.0
+       34        mP          3.5      37.7   77.5   77.3  90.0  90.0  90.1
+       32        oP          4.1      37.7   77.3   77.5  90.0  90.1  90.0
+       20        mC         13.4     109.5  109.4   37.7  90.0  90.1  90.2
+       25        mC         15.0     109.5  109.4   37.7  90.0  90.1  89.8
+       23        oC         15.1     109.4  109.5   37.7  90.1  90.0  89.8
+       21        tP         16.7      77.3   77.5   37.7  90.1  90.0  90.0 <<<<<<
+       37        mC        249.7     159.5   37.7   77.3  90.0  90.0  76.4
+       28        mC        249.9      37.7  159.5   77.3  90.0  90.0  76.4
+   
+   BRAVAIS-            POSSIBLE SPACE-GROUPS FOR PROTEIN CRYSTALS
+     TYPE                     [SPACE GROUP NUMBER,SYMBOL]
+     aP      [1,P1]
+     mP      [3,P2] [4,P2(1)]
+    mC,mI    [5,C2]
+     oP      [16,P222] [17,P222(1)] [18,P2(1)2(1)2] [19,P2(1)2(1)2(1)]
+     oC      [21,C222] [20,C222(1)]
+     tP      [75,P4] [76,P4(1)] [77,P4(2)] [78,P4(3)] [89,P422] [90,P42(1)2]
+             [91,P4(1)22] [92,P4(1)2(1)2] [93,P4(2)22] [94,P4(2)2(1)2]
+             [95,P4(3)22] [96,P4(3)2(1)2]
+   
+   
+ 
+ NOTE : re-running indexing step with those settings
+ 
